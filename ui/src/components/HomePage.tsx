@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BookList from "./BookList";
 import BookForm from "./BookForm";
-import { Book } from "../../../src/models/book"; // Adjust the relative path as needed
+import { Book } from "../../../src/Model1/book";
 
 const HomePage = () => {
   const [refresh, setRefresh] = useState(false);

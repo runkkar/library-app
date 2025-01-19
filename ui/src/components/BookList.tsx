@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Book } from "../../../src/models/book"; // Adjust the relative path as needed
+import { Book } from "../../../src/Model1/book";
 
 interface BookListProps {
   refresh: boolean;

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Book } from "../models/book";
+import { Book } from "../Model1/book";
 
 let books: Book[] = [];
 let idCounter = 1;
