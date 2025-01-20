@@ -22,41 +22,53 @@ const BookList = ({ refresh, onEdit }: BookListProps) => {
   };
 
   return (
-    <table className="book-table">
-      <thead>
-        <tr>
-          <th>Název</th>
-          <th>Autor</th>
-          <th>Rok</th>
-          <th>Dostupnost</th>
-          <th>Akce</th>
-        </tr>
-      </thead>
-      <tbody>
-        {books.map((book) => (
-          <tr key={book.id}>
-            <td>{book.title}</td>
-            <td>{book.author}</td>
-            <td>{book.year}</td>
-            <td>{book.available ? "Ano" : "Ne"}</td>
-            <td>
-              <button
-                className="edit-button"
-                onClick={() => onEdit(book)}
+    <div className="flex flex-col h-screen bg-gray-100">
+      <h1 className="text-3xl font-bold text-center py-4 bg-gray-800 text-white">
+        Seznam knih
+      </h1>
+      <div className="flex-grow overflow-y-scroll">
+        <table className="w-full table-auto border-collapse bg-white shadow-lg">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="p-4 border">Název</th>
+              <th className="p-4 border">Autor</th>
+              <th className="p-4 border">Rok</th>
+              <th className="p-4 border">Dostupnost</th>
+              <th className="p-4 border">Akce</th>
+            </tr>
+          </thead>
+          <tbody>
+            {books.map((book, index) => (
+              <tr
+                key={book.id}
+                className={index % 2 === 0 ? "bg-gray-50" : "bg-gray-100"}
               >
-                Upravit
-              </button>
-              <button
-                className="delete-button"
-                onClick={() => deleteBook(book.id)}
-              >
-                Odstranit
-              </button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+                <td className="p-4 border">{book.title}</td>
+                <td className="p-4 border">{book.author}</td>
+                <td className="p-4 border">{book.year}</td>
+                <td className="p-4 border">
+                  {book.available ? "Ano" : "Ne"}
+                </td>
+                <td className="p-4 border">
+                  <button
+                    className="text-blue-500 hover:text-blue-700 mr-4"
+                    onClick={() => onEdit(book)}
+                  >
+                    Upravit
+                  </button>
+                  <button
+                    className="text-red-500 hover:text-red-700"
+                    onClick={() => deleteBook(book.id)}
+                  >
+                    Odstranit
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 };
 

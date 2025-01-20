@@ -80,50 +80,57 @@ const BookForm = ({ onFormSubmit, bookToEdit }: BookFormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="book-form">
-      <h2>{form.id ? "Upravit Knihu" : "Přidat Knihu"}</h2>
-      <div className="input-group">
-        <label>Název</label>
+    <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto bg-gray-100 p-6 rounded-md shadow-md border border-gray-300">
+      <h2 className="text-xl font-semibold text-gray-800 mb-4 border-b border-gray-300 pb-2">
+        {form.id ? "Upravit Knihu" : "Přidat Knihu"}
+      </h2>
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Název</label>
         <input
           type="text"
           name="title"
           value={form.title}
           onChange={handleChange}
           required
+          className="w-full px-4 py-2 text-gray-800 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
         />
       </div>
-      <div className="input-group">
-        <label>Autor</label>
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Autor</label>
         <input
           type="text"
           name="author"
           value={form.author}
           onChange={handleChange}
           required
+          className="w-full px-4 py-2 text-gray-800 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
         />
       </div>
-      <div className="input-group">
-        <label>Rok</label>
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Rok</label>
         <input
           type="number"
           name="year"
           value={form.year}
           onChange={handleChange}
           required
+          className="w-full px-4 py-2 text-gray-800 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
         />
       </div>
-      <div className="input-group">
-        <label>
-          <input
-            type="checkbox"
-            name="available"
-            checked={form.available}
-            onChange={handleChange}
-          />
-          Dostupná
-        </label>
+      <div className="mb-4 flex items-center">
+        <input
+          type="checkbox"
+          name="available"
+          checked={form.available}
+          onChange={handleChange}
+          className="h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+        />
+        <label className="ml-2 text-sm font-medium text-gray-700">Dostupná</label>
       </div>
-      <button type="submit">
+      <button
+        type="submit"
+        className="w-full py-2 px-4 rounded-md focus:ring-2 focus:outline-none"
+      >
         {form.id ? "Aktualizovat Knihu" : "Přidat Knihu"}
       </button>
     </form>
